@@ -40,7 +40,7 @@ Must be one of the following:
   - `perf`: A type of refactor that specifically improves performance
 - `test`: Adding missing tests or correcting existing tests
 - `revert`: Reverts a previous commit
-  - *Note: For revert type, `<description>` must be the commit message of the commit its reverting.*
+  - *Note: For revert type, `<subject>` must be the commit message of the commit its reverting.*
 - `build`: Affect build-related components (e.g., build tools, dependencies, project version, CI/CD pipelines, etc)
 - `chore`: Miscellaneous commits (e.g., modifying `.gitignore`)
 
