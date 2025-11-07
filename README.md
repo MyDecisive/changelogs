@@ -74,7 +74,7 @@ fix: fix container/service builder
 feat(mdai-event-hub): add generic webhook action support
 ```
 ```
-refactor!: added/updated labels for managed ConfigMaps
+refactor!: update labels for managed ConfigMaps
 ```
 
 ### Pull Request Description
