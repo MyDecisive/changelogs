@@ -14,7 +14,7 @@ Before submitting a pull request, please ensure you've done the following:
 
 ## Description
 <!--
-Please describes the changes you made in this pull request.
+Please describe the changes you made in this pull request.
 
 If applicable, please feel free to include screenshots to make it
 easier for reviewers understand your pull request. 
