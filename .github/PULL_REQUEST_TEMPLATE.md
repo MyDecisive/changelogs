@@ -41,7 +41,6 @@ https://github.com/DecisiveAI/changelogs?tab=readme-ov-file#type
 - [ ] Other, please specify: 
 
 ### Does this PR introduce any breaking changes?
-
 - [ ] No
 - [ ] Yes, and this is why: 
 - [ ] I need help determining if there are any breaking changes
