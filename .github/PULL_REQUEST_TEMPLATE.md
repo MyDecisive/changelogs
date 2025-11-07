@@ -14,6 +14,8 @@ Before submitting a pull request, please ensure you've done the following:
 
 ## Description
 <!--
+Please describes the changes you made in this pull request.
+
 If applicable, please feel free to include screenshots to make it
 easier for reviewers understand your pull request. 
 
@@ -21,7 +23,7 @@ If there are any relevant documentations that help explain your pull
 request, please feel free to include them as well.
 -->
 
-
+- ENG-<!--REPLACE THIS WITH JIRA TICKET NUMBER-->
 
 ## What type of PR is this? (only check one)
 <!--
