@@ -10,6 +10,7 @@ This repository contains guidelines, templates, configurations, etc for MDAI tha
       - [[Optional] Scope](#optional-scope)
       - [Breaking Changes Indicator](#breaking-changes-indicator)
       - [Subject](#subject)
+      - [Example](#examples)
     - [Pull Request Description](#pull-request-description)
 
 # Guidelines
@@ -63,6 +64,18 @@ The subject contains a succinct description of the change:
 - Do not capitalize the first letter
 - Do not end the description with a period (.)
 - In case of breaking changes, see [Breaking Changes Indicator](#breaking-changes-indicator)
+
+#### Examples
+
+```
+fix: fix container/service builder
+```
+```
+feat(mdai-event-hub): add generic webhook action support
+```
+```
+refactor!: added/updated labels for managed ConfigMaps
+```
 
 ### Pull Request Description
 
