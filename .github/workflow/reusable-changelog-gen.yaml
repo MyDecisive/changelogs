@@ -40,8 +40,7 @@ jobs:
           version: "v2.10.1"
         env:
           GIT_CLIFF_CONFIG_URL: ${{ input.CONFIGURATION_URL }}
-          GIT_CLIFF_PREPEND: CHANGELOG.md
-          # OUTPUT: CHANGELOG.md
+          OUTPUT: CHANGELOG.md
           GITHUB_REPO: ${{ github.repository }}
       - name: Print Changelog
         if: ${{ inputs.DRY_RUN }} 

@@ -38,7 +38,7 @@ postprocessors = [
     { pattern = '<REPO>', replace_command = 'sed "s|<REPO>|${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}|g"' },
 ]
 # output file path
-# output = "CHANGELOG.md"
+output = "CHANGELOG.md"
 
 [git]
 # Parse commits according to the conventional commits specification.
