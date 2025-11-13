@@ -38,7 +38,7 @@ postprocessors = [
     { pattern = '<REPO>', replace_command = 'sed "s|<REPO>|${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}|g"' },
 ]
 # output file path
-output = "CHANGELOG.md"
+# output = "CHANGELOG.md"
 
 [git]
 # Parse commits according to the conventional commits specification.
@@ -76,6 +76,7 @@ commit_parsers = [
     { message = "^chore\\(deps.*\\)", skip = true },
     { message = "^chore\\(pr\\)", skip = true },
     { message = "^chore\\(pull\\)", skip = true },
+    { message = "^chore\\(changelog\\)", skip = true },
     { message = "^chore|^build", group = "<!-- 7 -->⚙️ Miscellaneous Tasks" },
     { body = ".*security", group = "<!-- 8 -->🛡️ Security" },
     { message = "^revert", group = "<!-- 9 -->◀️ Revert" },
