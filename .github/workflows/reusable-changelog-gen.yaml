@@ -38,8 +38,8 @@ jobs:
         uses: orhun/git-cliff-action@v4
         with:
           version: "v2.10.1"
+          args: --config-url ${{ input.config-url }}
         env:
-          GIT_CLIFF_CONFIG_URL: ${{ input.config-url }}
           OUTPUT: CHANGELOG.md
           GITHUB_REPO: ${{ github.repository }}
       - name: Print Changelog
