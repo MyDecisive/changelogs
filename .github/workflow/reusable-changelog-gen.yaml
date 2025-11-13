@@ -3,20 +3,20 @@ name: Generate Changelog
 on:
   workflow_call:
     inputs:
-      REF:
+      ref:
         description: "The branch, tag or SHA used to generate changelog"
         type: string
         default: "main"
-      CONFIGURATION_URL:
+      config-url:
         description: "URL of the git cliff configuration file"
         type: string
         default: "https://raw.githubusercontent.com/DecisiveAI/changelogs/refs/heads/main/cliff.toml"
-      DRY_RUN:
+      dry-run:
         description: "True to generate changelog without committing"
         type: boolean
         default: false
     outputs:
-      CHANGELOG:
+      changelog:
         description: "Generated changelog"
         value: ${{ jobs.git-cliff.outputs.content }}
 
@@ -32,26 +32,26 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: ${{ inputs.REF }} 
+          ref: ${{ inputs.ref }} 
       - name: Generate Changelog
         id: git-cliff
         uses: orhun/git-cliff-action@v4
         with:
           version: "v2.10.1"
         env:
-          GIT_CLIFF_CONFIG_URL: ${{ input.CONFIGURATION_URL }}
+          GIT_CLIFF_CONFIG_URL: ${{ input.config-url }}
           OUTPUT: CHANGELOG.md
           GITHUB_REPO: ${{ github.repository }}
       - name: Print Changelog
-        if: ${{ inputs.DRY_RUN }} 
+        if: ${{ inputs.dry-run }} 
         run: cat "${{ steps.git-cliff.outputs.changelog }}"
       - name: Setup Git User
-        if: ${{ !inputs.DRY_RUN }} 
+        if: ${{ !inputs.dry-run }} 
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Commit
-        if: ${{ !inputs.DRY_RUN }} 
+        if: ${{ !inputs.dry-run }} 
         run: |
           git add CHANGELOG.md
           git commit -m "chore(changelog): update changelog"
