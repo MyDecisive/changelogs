@@ -57,3 +57,13 @@ _Please keep the code coverage percentage at 80% and above._
 - [ ] Yes
 - [ ] No, and this is why: 
 - [ ] I need help with writing tests
+
+## Added/updated documentation and/or lab?
+<!--
+If it does not make sense for the changes done in this repository to ever
+need to update lab repo, then feel free to change the wording of this
+section when copied over.
+-->
+- [ ] Yes <!--If applicable, provide lab PR url here-->
+- [ ] N/A
+- [ ] I need help
