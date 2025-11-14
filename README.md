@@ -32,9 +32,9 @@ Title of a pull request must follow the [conventional commit](https://www.conven
 Must be one of the following:
 
 - `feat`: Add or change a feature
-- `fix`: Fixes issue with the codebase
+- `fix`: Fixes issue with the codebase (e.g., bug, business logic error, typo, etc)
   - `security`: A type of fixes that resolve security concerns
-  - `style`: A type of fixes address code style (e.g., white-space, formatting, missing semi-colons) and do not affect application behavior
+  - `style`: A type of fixes address code style (e.g., white-space, formatting, missing semi-colons, etc) and do not affect application behavior
 - `doc`: Documentation only changes
 - `refactor`: Rewrite or restructure code without altering behavior
   - `perf`: A type of refactor that specifically improves performance
