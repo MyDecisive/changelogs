@@ -7,6 +7,7 @@ commits if your PR already received reviews or comments.
 Before submitting a pull request, please ensure you've done the following:
 - Create small PRs. In most cases this will be possible.
 - Provide tests for your changes.
+- Add/update relevant documentation(s).
 - Fill out the pull request template.
 - Ensure your PR title follow the guideline described in: 
   https://github.com/DecisiveAI/changelogs?tab=readme-ov-file#pull-request-title
@@ -58,12 +59,10 @@ _Please keep the code coverage percentage at 80% and above._
 - [ ] No, and this is why: 
 - [ ] I need help with writing tests
 
-## Added/updated documentation and/or lab?
 <!--
-If it does not make sense for the changes done in this repository to ever
-need to update lab repo, then feel free to change the wording of this
-section when copied over.
--->
-- [ ] Yes <!--If applicable, provide lab PR url here-->
+Uncomment this section if needed:
+## Updated [`mdai-labs`](https://github.com/DecisiveAI/mdai-labs) to reflect changes done in this PR?
+- [ ] Yes
 - [ ] N/A
-- [ ] I need help
+- [ ] I need help, please elaborate: 
+-->
