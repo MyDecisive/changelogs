@@ -25,7 +25,7 @@ permissions:
   pull-requests: read
 
 jobs:
-  lint:
+  generate:
     name: Generate Changelog
     runs-on: ubuntu-24.04
     steps:
