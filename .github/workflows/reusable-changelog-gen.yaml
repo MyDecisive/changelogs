@@ -1,0 +1,60 @@
+name: Generate Changelog
+
+on:
+  workflow_call:
+    inputs:
+      ref:
+        description: "The branch, tag or SHA used to generate changelog"
+        type: string
+        default: "main"
+      config-url:
+        description: "URL of the git cliff configuration file"
+        type: string
+        default: "https://raw.githubusercontent.com/DecisiveAI/changelogs/refs/heads/main/cliff.toml"
+      dry-run:
+        description: "True to generate changelog without committing"
+        type: boolean
+        default: false
+    outputs:
+      changelog:
+        description: "Generated changelog"
+        value: ${{ jobs.git-cliff.outputs.content }}
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  generate:
+    name: Generate Changelog
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ inputs.ref }} 
+      - name: Generate
+        id: git-cliff
+        uses: orhun/git-cliff-action@v4
+        with:
+          version: "v2.10.1"
+          args: --config-url ${{ inputs.config-url }}
+        env:
+          OUTPUT: CHANGELOG.md
+          GITHUB_REPO: ${{ github.repository }}
+      - name: Setup Git User
+        if: ${{ !inputs.dry-run }} 
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Commit
+        if: ${{ !inputs.dry-run }} 
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then 
+            echo "nothing to commit"
+          else
+            git add CHANGELOG.md
+            git commit -m "chore(changelog): update changelog"
+            git push
+          fi

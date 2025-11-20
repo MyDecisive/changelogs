@@ -12,8 +12,12 @@ This repository contains guidelines, templates, configurations, etc for MDAI tha
       - [Subject](#subject)
       - [Example](#examples)
     - [Pull Request Description](#pull-request-description)
-- [Use Semantic PR Title Reusable Workflow](#use-semantic-pr-title-reusable-workflow)
+- [Use Generate Changelog Reusable Workflow](#use-generate-changelog-reusable-workflow)
+  - [Inputs](#inputs)
+  - [Outputs](#outputs)
   - [Example Usage](#example-usage)
+- [Use Semantic PR Title Reusable Workflow](#use-semantic-pr-title-reusable-workflow)
+  - [Example Usage](#example-usage-1)
 
 # Guidelines
 
@@ -88,6 +92,43 @@ If the repository you are working in does not have a pull request template yet, 
 > [!TIP]
 > `PULL_REQUEST_TEMPLATE.md` find in this repository is only meant to be used as a baseline, it can and should be modified to fit the specific need of each repositories.
 
+## Use Generate Changelog Reusable Workflow
+
+This repository provides a reusable workflow that can be used to generate (using [git-cliff](https://git-cliff.org/)) and commit the changelog in the caller repository.
+
+### Inputs
+- `ref`: The branch, tag or SHA used to generate changelog (default: `main`)
+- `config-url`: URL of the git cliff configuration file (default: `https://raw.githubusercontent.com/DecisiveAI/changelogs/refs/heads/main/cliff.toml`)
+- `dry-run`: True to generate changelog without committing (default: `false`)
+
+### Outputs
+- `changelog`: Content of the generated changelog
+
+### Example Usage
+
+#### Basic
+
+This example showcase how to use the workflow with default values:
+
+```yaml
+jobs:
+  changelog:
+    uses: DecisiveAI/changelogs/.github/workflows/reusable-changelog-gen.yaml@main
+    secrets: inherit # pass all secrets
+```
+
+#### Dry Run
+
+This example showcase how to run the workflow without making any commits:
+
+```yaml
+jobs:
+  changelog:
+    uses: DecisiveAI/changelogs/.github/workflows/reusable-changelog-gen.yaml@main
+    with:
+      dry-run: true
+    secrets: inherit # pass all secrets
+```
 ## Use Semantic PR Title Reusable Workflow
 
 This repository provides a reusable workflow that can be used to lint (using [action-semantic-pull-request](https://github.com/amannn/action-semantic-pull-request)) the PR title according to [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/).
