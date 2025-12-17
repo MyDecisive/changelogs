@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  version-check:
+    name: version-check
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Get changed files in the pkg folder
+        id: changed
+        uses: tj-actions/changed-files@v47
+        with:
+          files_yaml: |
+            composite:
+              - scripts/composite/**
+              - '!scripts/composite/version.yaml'
+            version:
+              - scripts/composite/version.yaml
+      - name: Check for updated version if there were pkg folder changes
+        if: steps.changed.outputs.composite_any_changed == 'true' && steps.changed.outputs.version_any_changed == 'false'
+        run: |
+          echo "No changes detected to the scripts/composite/version.yaml file. Please update the version." && exit 1
+        
