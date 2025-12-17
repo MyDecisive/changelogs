@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   version-check:
-    name: version-check
+    name: Version Check
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
