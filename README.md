@@ -12,12 +12,15 @@ This repository contains guidelines, templates, configurations, etc for MDAI tha
       - [Subject](#subject)
       - [Example](#examples)
     - [Pull Request Description](#pull-request-description)
-- [Use Generate Changelog Reusable Workflow](#use-generate-changelog-reusable-workflow)
-  - [Inputs](#inputs)
-  - [Outputs](#outputs)
-  - [Example Usage](#example-usage)
-- [Use Semantic PR Title Reusable Workflow](#use-semantic-pr-title-reusable-workflow)
-  - [Example Usage](#example-usage-1)
+- [Reusable Workflows](#reusable-workflows)
+  - [Generate Changelog](#generate-changelog)
+    - [Inputs](#inputs)
+    - [Outputs](#outputs)
+    - [Example Usage](#example-usage)
+  - [Semantic PR Title](#semantic-pr-title)
+    - [Example Usage](#example-usage-1)
+- [Tools](#tools)
+  - [Generate Composite Changelog](#generate-composite-changelog)
 
 # Guidelines
 
@@ -92,7 +95,9 @@ If the repository you are working in does not have a pull request template yet, 
 > [!TIP]
 > `PULL_REQUEST_TEMPLATE.md` find in this repository is only meant to be used as a baseline, it can and should be modified to fit the specific need of each repositories.
 
-## Use Generate Changelog Reusable Workflow
+# Reusable Workflows
+
+## Generate Changelog
 
 This repository provides a reusable workflow that can be used to generate (using [git-cliff](https://git-cliff.org/)) and commit the changelog in the caller repository.
 
@@ -129,7 +134,7 @@ jobs:
       dry-run: true
     secrets: inherit # pass all secrets
 ```
-## Use Semantic PR Title Reusable Workflow
+## Semantic PR Title
 
 This repository provides a reusable workflow that can be used to lint (using [action-semantic-pull-request](https://github.com/amannn/action-semantic-pull-request)) the PR title according to [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
@@ -169,3 +174,11 @@ Then, it will require a passing check before merging like the below screenshot.
 
 ### For work-in-progress PRs
 Refer to the [WIP](https://github.com/amannn/action-semantic-pull-request?tab=readme-ov-file#work-in-progress-pull-requests) documentation for the action if bypassing the lint is desired.
+
+# Tools
+
+## Generate Composite Changelog
+
+Generate composite changelog base on relevant dependencies find in `Chart.yaml` of the given helm chart repository, and the generated composite changelog will be prepended to the given file path.
+
+See Generate Composite Changelog [README](./scripts/composite/README.md) for more details.

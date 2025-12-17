@@ -19,6 +19,8 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// Please take a look at README.md to learn more about using this tool.
+
 const (
 	latestReleaseURLFormat = "https://api.github.com/repos/%s/releases/latest"
 	tagsURLFormat          = "https://api.github.com/repos/%s/tags"
