@@ -49,7 +49,7 @@ func main() {
 	gitOwner := flag.String("owner", "DecisiveAI", "GitHub owner of the repositories")
 	gitMainRepo := flag.String("repo", "mdai-hub", "GitHub Helm chart repository to gather the dependencies from")
 	identifier := flag.String("id", "mdai", "Identifier used to find relevant dependencies")
-	config := flag.String("config", "./cliff.toml", "path to the cliff.toml to use")
+	config := flag.String("config", ".https://raw.githubusercontent.com/DecisiveAI/changelogs/refs/heads/main/scripts/composite/cliff.toml", "url of the cliff.toml to use")
 	path := flag.String("path", "./../../CHANGELOG.md", "absolute path to store the composite changelog")
 	flag.Parse()
 
@@ -277,7 +277,7 @@ func gitClone(ctx context.Context, owner string, repo string, path string) error
 
 // gitCliff executes git cliff command using given parameters and return output.
 func gitCliff(ctx context.Context, config string, path string, prev string, latest string) ([]byte, error) {
-	return exec.CommandContext(ctx, "git-cliff", "--config", config, "--workdir", path, fmt.Sprintf("%s..%s", prev, latest)).Output()
+	return exec.CommandContext(ctx, "git-cliff", "--config-url", config, "--workdir", path, fmt.Sprintf("%s..%s", prev, latest)).Output()
 }
 
 // getHTTP get content from given url.
