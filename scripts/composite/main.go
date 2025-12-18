@@ -54,9 +54,10 @@ func main() {
 	path := flag.String("path", "./../../CHANGELOG.md", "absolute path to store the composite changelog")
 	flag.Parse()
 
+	var err error
+
 	helmRepo := fmt.Sprintf("%s/%s", *gitOwner, *gitMainRepo)
 
-	var err error
 	latestTag := *version
 	if latestTag == "" {
 		latestTag, err = getLatestTag(helmRepo)
