@@ -1,3 +1,4 @@
+set -e 
 tracked=$(yq ".version" tracked.yaml)
 if [  "$1" = "`echo -e "$1\n$tracked" | sort -V | head -n1`" ]; then
   echo "Already generated"
