@@ -5,7 +5,7 @@ on:
     paths:
       - 'scripts/composite/**'
     branches:
-      - ENG-972
+      - main
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
