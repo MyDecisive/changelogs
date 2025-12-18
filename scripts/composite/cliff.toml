@@ -11,7 +11,7 @@ body = """
     #### ⚠ Breaking Changes
     
     {% for commit in breaking_changes %}\
-        - {{ commit.message | split(pat="\n") | first | upper_first }}
+        - {{ commit.message | split(pat="\n") | first | upper_first | trim }}
     {% endfor %}\
 {% endif %}\
 {% for group, commits in commits | group_by(attribute="group") %}\
@@ -21,7 +21,7 @@ body = """
         {% for commit in commits %}\
             - {% if commit.scope %}*({{ commit.scope }})* {% endif %}\
                 {% if commit.breaking %}[**breaking**] {% endif %}\
-                {{ commit.message | split(pat="\n") | first | upper_first }}
+                {{ commit.message | split(pat="\n") | first | upper_first | trim }}
         {% endfor %}\
     {% endif %}\
 {% endfor %}\
@@ -45,7 +45,7 @@ filter_unconventional = true
 # Takes precedence over filter_unconventional.
 require_conventional = false
 # Split commits on newlines, treating each line as an individual commit.
-split_commits = true
+split_commits = false
 # An array of regex based parsers to modify commit messages prior to further processing.
 commit_preprocessors = [
     # Replace issue numbers with link templates to be updated in `changelog.postprocessors`.
