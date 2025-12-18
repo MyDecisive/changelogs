@@ -38,6 +38,12 @@ Please make sure the following commands are installed and available in `$PATH` p
 
 ### Example(s)
 
+Generate changelog for the latest version:
 ```
 composite --config https://raw.githubusercontent.com/DecisiveAI/changelogs/refs/heads/main/scripts/composite/cliff.toml --path path/to/CHANGELOG.md
+```
+
+Generate changelog for `<VERSION>`:
+```
+composite --config https://raw.githubusercontent.com/DecisiveAI/changelogs/refs/heads/main/scripts/composite/cliff.toml --path path/to/CHANGELOG.md --version <VERSION>
 ```
