@@ -1,12 +1,11 @@
 name: Tag Go Library
 
 on:
-  workflow_dispatch:
   push:
     paths:
       - 'scripts/composite/**'
     branches:
-      - main
+      - ENG-972
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
