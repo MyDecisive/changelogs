@@ -51,7 +51,7 @@ func main() {
 	gitMainRepo := flag.String("repo", "mdai-hub", "GitHub Helm chart repository to gather the dependencies from")
 	version := flag.String("version", "", "GitHub Helm chart repository's release version to generate changelog for")
 	identifier := flag.String("id", "mdai", "Identifier used to find relevant dependencies")
-	config := flag.String("config", ".https://raw.githubusercontent.com/DecisiveAI/changelogs/refs/heads/main/scripts/composite/cliff.toml", "url of the cliff.toml to use")
+	config := flag.String("config", "https://raw.githubusercontent.com/DecisiveAI/changelogs/refs/heads/main/scripts/composite/cliff.toml", "url of the cliff.toml to use")
 	path := flag.String("path", "./../../CHANGELOG.md", "absolute path to store the composite changelog")
 	flag.Parse()
 
@@ -160,7 +160,8 @@ func genComposite(ctx context.Context, gitOwner string, config string, latestTag
 		// If changelog length is 2 then it only contains `\n`
 		if len(changelog) > 2 {
 			result = append(result, fmt.Sprintf("### %s\n", repo)...)
-			result = append(result, strings.ReplaceAll(string(changelog), repoReplaceKey, fmt.Sprintf("%s/%s", gitOwner, repo))...)
+			changelog = []byte(strings.ReplaceAll(string(changelog), repoReplaceKey, fmt.Sprintf("%s/%s", gitOwner, repo)))
+			result = append(result, changelog...)
 		}
 	}
 

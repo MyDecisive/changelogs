@@ -30,6 +30,8 @@ body = """
 trim = true
 # Render body even when there are no releases to process.
 render_always = true
+# An array of regex based postprocessors to modify the changelog.
+postprocessors = []
 # output file path
 # output = "CHANGELOG.md"
 
@@ -47,7 +49,7 @@ split_commits = false
 # An array of regex based parsers to modify commit messages prior to further processing.
 commit_preprocessors = [
     # Replace issue numbers with link templates to be updated in `changelog.postprocessors`.
-    { pattern = '\((\w+\s)?#([0-9]+)\)', replace = "([#${2}](<REPO>/pull/${2}))"},
+    { pattern = '\((\w+\s)?#([0-9]+)\)', replace = "([#${2}](https://github.com/<REPO>/pull/${2}))"},
     # Check spelling of the commit message using https://github.com/crate-ci/typos.
     # If the spelling is incorrect, it will be fixed automatically.
     #{ pattern = '.*', replace_command = 'typos --write-changes -' },

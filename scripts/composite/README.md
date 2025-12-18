@@ -21,6 +21,7 @@ go install github.com/DecisiveAI/changelogs/scripts/composite@latest
 Please make sure the following commands are installed and available in `$PATH` prior to running this tool:
 
 - [git](https://git-scm.com/): Used to gather tag and commit information for the dependencies.
+  - This tool only works with `v2.10.1`
 - [git-cliff](https://git-cliff.org/docs/): Used to generate changelog for the dependencies.
 
 ### Flags
