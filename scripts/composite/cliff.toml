@@ -30,11 +30,6 @@ body = """
 trim = true
 # Render body even when there are no releases to process.
 render_always = true
-# An array of regex based postprocessors to modify the changelog.
-postprocessors = [
-    # Replace the placeholder <REPO> with a URL.
-    { pattern = '<REPO>', replace_command = 'sed "s|<REPO>|${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}|g"' },
-]
 # output file path
 # output = "CHANGELOG.md"
 

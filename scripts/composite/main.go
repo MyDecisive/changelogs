@@ -32,6 +32,7 @@ const (
 	latestTagKey        = "tag_name"
 	tagNameKey          = "name"
 	prereleaseDelimiter = "-"
+	repoReplaceKey      = "<REPO>"
 )
 
 // chart used to parse Chart.yaml to get dependencies.
@@ -54,10 +55,9 @@ func main() {
 	path := flag.String("path", "./../../CHANGELOG.md", "absolute path to store the composite changelog")
 	flag.Parse()
 
-	var err error
-
 	helmRepo := fmt.Sprintf("%s/%s", *gitOwner, *gitMainRepo)
 
+	var err error
 	latestTag := *version
 	if latestTag == "" {
 		latestTag, err = getLatestTag(helmRepo)
@@ -160,7 +160,7 @@ func genComposite(ctx context.Context, gitOwner string, config string, latestTag
 		// If changelog length is 2 then it only contains `\n`
 		if len(changelog) > 2 {
 			result = append(result, fmt.Sprintf("### %s\n", repo)...)
-			result = append(result, changelog...)
+			result = append(result, strings.ReplaceAll(string(changelog), repoReplaceKey, fmt.Sprintf("%s/%s", gitOwner, repo))...)
 		}
 	}
 
