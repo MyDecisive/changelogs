@@ -27,6 +27,8 @@ Please make sure the following commands are installed and available in `$PATH` p
 
 - `--owner`: GitHub owner of the repositories (default: `DecisiveAI`)
 - `--repo`: GitHub Helm chart repository to gather dependencies from (default: `mdai-hub`)
+- `--version`: GitHub Helm chart repository's release version to generate changelog for
+  - If not provided, the tool will automatically generate changelog for the latest version
 - `--id`: Identifier used to find relevant dependencies (default: `mdai`)
   - *Note: The dependencies find by the identifier must correspond to GitHub repositories with same name and be owned by the same GitHub owner as the one provided in `--owner`.*
     - *Version, without `v`, in the `Chart.yaml` must correspond to a tag, with `v`, in the corresponding GitHub repository.*
