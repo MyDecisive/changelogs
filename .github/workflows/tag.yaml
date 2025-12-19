@@ -1,0 +1,30 @@
+name: Tag Go Library
+
+on:
+  push:
+    paths:
+      - 'scripts/composite/**'
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  tag:
+    name: Tag
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Retrieve Version
+        id: version
+        run: echo "VERSION=$(yq ".version" scripts/composite/version.yaml)" >> "$GITHUB_OUTPUT"
+      - name: Tagging
+        uses: rickstaa/action-create-tag@v1
+        with:
+          tag: scripts/composite/${{ steps.version.outputs.VERSION }}
+          tag_exists_error: true
