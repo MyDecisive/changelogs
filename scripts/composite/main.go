@@ -192,7 +192,7 @@ func getLatestTag(repo string) (string, error) {
 	return tag, nil
 }
 
-// getPreviousDependencies return relevant dependencies from the none prerelease tag before the given latest tag.
+// getPreviousDependencies return relevant dependencies from the non-prerelease tag before the given latest tag.
 func getPreviousDependencies(identifier string, repo string, latest string) (map[string]string, error) {
 	tags, err := getAllTag(repo)
 	if err != nil {
