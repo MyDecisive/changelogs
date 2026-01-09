@@ -154,7 +154,7 @@ func genComposite(ctx context.Context, gitOwner string, config string, latestTag
 
 		changelog, err := gitCliff(ctx, config, path, previous, fmt.Sprintf("v%s", latest))
 		if err != nil {
-			return nil, fmt.Errorf("get changelog for %s:%w", repo, err)
+			return nil, fmt.Errorf("get changelog for %s:%s", repo, changelog)
 		}
 
 		// If changelog length is 2 then it only contains `\n`
