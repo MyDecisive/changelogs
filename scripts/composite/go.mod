@@ -1,4 +1,4 @@
-module github.com/DecisiveAI/changelogs/scripts/composite
+module github.com/MyDecisive/changelogs/scripts/composite
 
 go 1.25.5
 

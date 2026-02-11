@@ -39,7 +39,7 @@ jobs:
         with:
           header: pr-title-lint-error
           message: |
-            We require pull request titles to follow the [PR Title Specification](https://github.com/DecisiveAI/changelogs?tab=readme-ov-file#pull-request-title) and it looks like your proposed title needs to be adjusted.
+            We require pull request titles to follow the [PR Title Specification](https://github.com/MyDecisive/changelogs?tab=readme-ov-file#pull-request-title) and it looks like your proposed title needs to be adjusted.
 
             Details:
 

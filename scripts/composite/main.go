@@ -47,11 +47,11 @@ type chartDependency struct {
 }
 
 func main() {
-	gitOwner := flag.String("owner", "DecisiveAI", "GitHub owner of the repositories")
+	gitOwner := flag.String("owner", "MyDecisive", "GitHub owner of the repositories")
 	gitMainRepo := flag.String("repo", "mdai-hub", "GitHub Helm chart repository to gather the dependencies from")
 	version := flag.String("version", "", "GitHub Helm chart repository's release version to generate changelog for")
 	identifier := flag.String("id", "mdai", "Identifier used to find relevant dependencies")
-	config := flag.String("config", "https://raw.githubusercontent.com/DecisiveAI/changelogs/refs/heads/main/scripts/composite/cliff.toml", "url of the cliff.toml to use")
+	config := flag.String("config", "https://raw.githubusercontent.com/MyDecisive/changelogs/refs/heads/main/scripts/composite/cliff.toml", "url of the cliff.toml to use")
 	path := flag.String("path", "./../../CHANGELOG.md", "absolute path to store the composite changelog")
 	flag.Parse()
 

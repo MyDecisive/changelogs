@@ -10,7 +10,7 @@ on:
       config-url:
         description: "URL of the git cliff configuration file"
         type: string
-        default: "https://raw.githubusercontent.com/DecisiveAI/changelogs/refs/heads/main/cliff.toml"
+        default: "https://raw.githubusercontent.com/MyDecisive/changelogs/refs/heads/main/cliff.toml"
       dry-run:
         description: "True to generate changelog without committing"
         type: boolean
