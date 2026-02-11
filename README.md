@@ -103,7 +103,7 @@ This repository provides a reusable workflow that can be used to generate (using
 
 ### Inputs
 - `ref`: The branch, tag or SHA used to generate changelog (default: `main`)
-- `config-url`: URL of the git cliff configuration file (default: `https://raw.githubusercontent.com/DecisiveAI/changelogs/refs/heads/main/cliff.toml`)
+- `config-url`: URL of the git cliff configuration file (default: `https://raw.githubusercontent.com/MyDecisive/changelogs/refs/heads/main/cliff.toml`)
 - `dry-run`: True to generate changelog without committing (default: `false`)
 
 ### Outputs
@@ -118,7 +118,7 @@ This example showcase how to use the workflow with default values:
 ```yaml
 jobs:
   changelog:
-    uses: DecisiveAI/changelogs/.github/workflows/reusable-changelog-gen.yaml@main
+    uses: MyDecisive/changelogs/.github/workflows/reusable-changelog-gen.yaml@main
     secrets: inherit # pass all secrets
 ```
 
@@ -129,7 +129,7 @@ This example showcase how to run the workflow without making any commits:
 ```yaml
 jobs:
   changelog:
-    uses: DecisiveAI/changelogs/.github/workflows/reusable-changelog-gen.yaml@main
+    uses: MyDecisive/changelogs/.github/workflows/reusable-changelog-gen.yaml@main
     with:
       dry-run: true
     secrets: inherit # pass all secrets
@@ -160,7 +160,7 @@ permissions:
 
 jobs:
   reusable:
-    uses: DecisiveAI/changelogs/.github/workflows/reusable-semantic-pr-title.yaml@main
+    uses: MyDecisive/changelogs/.github/workflows/reusable-semantic-pr-title.yaml@main
     secrets: inherit # pass all secrets
 ```
 

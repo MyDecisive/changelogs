@@ -11,7 +11,7 @@ Generate composite changelog base on relevant dependencies find in `Chart.yaml` 
 ## Installation
 
 ```
-go install github.com/DecisiveAI/changelogs/scripts/composite@latest
+go install github.com/MyDecisive/changelogs/scripts/composite@latest
 ```
 
 ## Usage
@@ -26,24 +26,24 @@ Please make sure the following commands are installed and available in `$PATH` p
 
 ### Flags
 
-- `--owner`: GitHub owner of the repositories (default: `DecisiveAI`)
+- `--owner`: GitHub owner of the repositories (default: `MyDecisive`)
 - `--repo`: GitHub Helm chart repository to gather dependencies from (default: `mdai-hub`)
 - `--version`: GitHub Helm chart repository's release version to generate changelog for
   - If not provided, the tool will automatically generate changelog for the latest version
 - `--id`: Identifier used to find relevant dependencies (default: `mdai`)
   - *Note: The dependencies find by the identifier must correspond to GitHub repositories with same name and be owned by the same GitHub owner as the one provided in `--owner`.*
     - *Version, without `v`, in the `Chart.yaml` must correspond to a tag, with `v`, in the corresponding GitHub repository.*
-- `--config`: URL of the cliff.toml used to configure `git-cliff` (default: `https://raw.githubusercontent.com/DecisiveAI/changelogs/refs/heads/main/scripts/composite/cliff.toml`)
+- `--config`: URL of the cliff.toml used to configure `git-cliff` (default: `https://raw.githubusercontent.com/MyDecisive/changelogs/refs/heads/main/scripts/composite/cliff.toml`)
 - `--path`: Path to prepend the generated composite changelog to (default: `./../../CHANGELOG.md`)
 
 ### Example(s)
 
 Generate changelog for the latest version:
 ```
-composite --config https://raw.githubusercontent.com/DecisiveAI/changelogs/refs/heads/main/scripts/composite/cliff.toml --path path/to/CHANGELOG.md
+composite --config https://raw.githubusercontent.com/MyDecisive/changelogs/refs/heads/main/scripts/composite/cliff.toml --path path/to/CHANGELOG.md
 ```
 
 Generate changelog for `<VERSION>`:
 ```
-composite --config https://raw.githubusercontent.com/DecisiveAI/changelogs/refs/heads/main/scripts/composite/cliff.toml --path path/to/CHANGELOG.md --version <VERSION>
+composite --config https://raw.githubusercontent.com/MyDecisive/changelogs/refs/heads/main/scripts/composite/cliff.toml --path path/to/CHANGELOG.md --version <VERSION>
 ```

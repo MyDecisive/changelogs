@@ -10,7 +10,7 @@ Before submitting a pull request, please ensure you've done the following:
 - Add/update relevant documentation(s).
 - Fill out the pull request template.
 - Ensure your PR title follow the guideline described in: 
-  https://github.com/DecisiveAI/changelogs?tab=readme-ov-file#pull-request-title
+  https://github.com/MyDecisive/changelogs?tab=readme-ov-file#pull-request-title
 -->
 
 ## Description
@@ -34,7 +34,7 @@ consider splitting up your PR.
 
 If you selected Other, please ensure the type you provided
 is one of the valid types outlined in
-https://github.com/DecisiveAI/changelogs?tab=readme-ov-file#type
+https://github.com/MyDecisive/changelogs?tab=readme-ov-file#type
 -->
 
 - [ ] Feature (`feat`)
@@ -61,7 +61,7 @@ _Please keep the code coverage percentage at 80% and above._
 
 <!--
 Uncomment this section if needed:
-## Updated [`mdai-labs`](https://github.com/DecisiveAI/mdai-labs) to reflect changes done in this PR?
+## Updated [`mdai-labs`](https://github.com/MyDecisive/mdai-labs) to reflect changes done in this PR?
 - [ ] Yes
 - [ ] N/A
 - [ ] I need help, please elaborate: 
